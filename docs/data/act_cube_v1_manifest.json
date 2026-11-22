@@ -1,0 +1,33 @@
+{
+  "documented_on": "2026-11-22",
+  "dataset_name": "so101_grasp_cube_test_20260721_200217",
+  "source": "datasets/so101_grasp_cube_test_20260721_200217/meta/info.json",
+  "verification_scope": "Local metadata only; no full video decoding or parquet row recount in this update",
+  "codebase_version": "v3.0",
+  "robot_type": "so_follower",
+  "total_episodes": 46,
+  "total_frames": 19958,
+  "total_tasks": 1,
+  "fps": 30,
+  "image_features": [
+    "observation.images.wrist",
+    "observation.images.scene"
+  ],
+  "image_shape_hwc": [480, 640, 3],
+  "video_codec": "av1",
+  "video_pix_fmt": "yuv420p",
+  "state_and_action_names": [
+    "shoulder_pan.pos",
+    "shoulder_lift.pos",
+    "elbow_flex.pos",
+    "wrist_flex.pos",
+    "wrist_roll.pos",
+    "gripper.pos"
+  ],
+  "metadata_splits": {"train": "0:46"},
+  "planned_split": {"train_episodes": 41, "validation_episodes": 5, "validation_selection": "last 5 episodes"},
+  "planned_split_execution_verified": false,
+  "formal_real_robot_success_rate": null,
+  "raw_dataset_included_in_git": false,
+  "model_weights_included_in_git": false
+}
