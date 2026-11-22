@@ -1,0 +1,31 @@
+task:
+  name: so101_cube_pick
+  fps: 30
+  episode_time_s: 20
+  control_mode: joint_position
+
+workspace:
+  table_size: [0.7, 0.5, 0.04]
+  table_pos: [0.22, 0.0, -0.02]
+  cube_size_range: [0.025, 0.032]
+  cube_xy_range:
+    x: [0.16, 0.30]
+    y: [-0.12, 0.12]
+  place_xy: [0.18, -0.18]
+  lift_height: 0.12
+
+domain_randomization:
+  cube_color: true
+  cube_size: true
+  cube_friction: true
+  light_position: true
+  camera_pose: true
+  joint_noise: true
+
+cameras:
+  wrist:
+    width: 640
+    height: 480
+  scene:
+    width: 640
+    height: 480

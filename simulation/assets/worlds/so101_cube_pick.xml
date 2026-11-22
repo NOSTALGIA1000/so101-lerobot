@@ -1,0 +1,40 @@
+<mujoco model="so101_cube_pick">
+  <compiler angle="radian" meshdir="../robots/so101" autolimits="true"/>
+  <option timestep="0.002" gravity="0 0 -9.81" iterations="80" ls_iterations="20"/>
+
+  <include file="../robots/so101/so101_new_calib.mjcf.xml"/>
+
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" width="512" height="512"
+             rgb1="0.85 0.85 0.85" rgb2="0.75 0.75 0.75"/>
+    <material name="table_mat" texture="grid" texrepeat="2 2" rgba="0.8 0.8 0.78 1"/>
+    <material name="cube_mat" rgba="0.85 0.08 0.05 1"/>
+  </asset>
+
+  <worldbody>
+    <light name="key_light" pos="0.2 -0.5 0.8" dir="-0.2 0.4 -1"/>
+    <camera name="scene" pos="0.55 -0.45 0.42" xyaxes="0.64 0.77 0 -0.34 0.28 0.90"/>
+    <camera name="overhead" pos="0.22 0 0.75" xyaxes="0 1 0 -1 0 0"/>
+
+    <geom name="floor" type="plane" size="1.2 1.2 0.01" rgba="0.45 0.45 0.45 1"/>
+    <body name="table" pos="0.22 0 -0.02">
+      <geom name="table_top" type="box" size="0.35 0.25 0.02" material="table_mat"
+            friction="1.5 0.02 0.001"/>
+    </body>
+
+    <body name="cube" pos="0.22 0.0 0.025">
+      <freejoint name="cube_freejoint"/>
+      <geom name="cube_geom" type="box" size="0.03 0.03 0.03" material="cube_mat"
+            mass="0.02" friction="3.0 0.08 0.004" condim="4"/>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <position name="shoulder_pan_pos" joint="shoulder_pan" kp="18"/>
+    <position name="shoulder_lift_pos" joint="shoulder_lift" kp="18"/>
+    <position name="elbow_flex_pos" joint="elbow_flex" kp="18"/>
+    <position name="wrist_flex_pos" joint="wrist_flex" kp="12"/>
+    <position name="wrist_roll_pos" joint="wrist_roll" kp="8"/>
+    <position name="gripper_pos" joint="gripper" kp="12"/>
+  </actuator>
+</mujoco>

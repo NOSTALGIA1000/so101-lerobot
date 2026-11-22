@@ -1,0 +1,41 @@
+{
+  "best_state_based_sim_policy": {
+    "path": "training/outputs/chunk_bc_bootstrap_20_c10.npz",
+    "type": "chunked_bc",
+    "inputs": [
+      "observation.state",
+      "cube_position",
+      "phase"
+    ],
+    "outputs": [
+      "action_chunk"
+    ],
+    "action_dim": 6,
+    "chunk_size": 10,
+    "simulation_eval": {
+      "episodes": 20,
+      "max_steps": 420,
+      "execute_chunk": 10,
+      "seed": 300,
+      "success_rate": 0.6,
+      "mean_max_cube_height_m": 0.08303886307403445,
+      "result_path": "evaluation/outputs/chunk_bc_bootstrap_20_c10_eval.json"
+    },
+    "deployment_status": "dry_run_only",
+    "real_robot_go_no_go": "no_cube_grasp_yet"
+  },
+  "rejected_experiments": [
+    {
+      "path": "training/outputs/chunk_bc_bootstrap_50_c10_h512_s3000.npz",
+      "reason": "50 episode scalar phase distribution reduced closed-loop success to 0.30 on 30 eval episodes"
+    },
+    {
+      "path": "training/outputs/chunk_bc_bootstrap_50_c10_h512_lr3e4_s3000.npz",
+      "reason": "lower learning rate fit validation data but rollout success dropped to 0.033 on 30 eval episodes"
+    },
+    {
+      "path": "training/outputs/chunk_bc_bootstrap_20_ee_c10_h512_s2000.npz",
+      "reason": "adding ee_position improved validation loss but caused 0.0 rollout success under current rollout distribution"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "policy": "C:\\Users\\ASUS\\Documents\\lerobot\\training\\outputs\\bc_state_cube_policy.npz",
+  "episodes": 10,
+  "success_rate": 0.1,
+  "successes": [
+    false,
+    false,
+    false,
+    false,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false
+  ],
+  "mean_max_cube_height": 0.0426638288423419,
+  "max_cube_heights": [
+    0.038524724543094635,
+    0.04015298932790756,
+    0.028399867936968803,
+    0.030690249055624008,
+    0.10383733361959457,
+    0.03557293117046356,
+    0.0407361164689064,
+    0.03572803735733032,
+    0.038839906454086304,
+    0.034156132489442825
+  ],
+  "mean_episode_length": 253.0,
+  "episode_lengths": [
+    280,
+    280,
+    280,
+    280,
+    10,
+    280,
+    280,
+    280,
+    280,
+    280
+  ],
+  "note": "State+cube-position BC baseline. This is not yet a camera-observation policy."
+}

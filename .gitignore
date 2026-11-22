@@ -1,0 +1,40 @@
+# Local credentials and environments
+.codex_vm_ssh/
+.hf_cli/
+.sim_deps/
+.env
+.env.*
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+tmp_check_autodl_status.py
+
+# Machine-specific calibration and generated data
+calibration/
+bsod-dumps/
+datasets/
+outputs/
+training/outputs/
+simulation/outputs/
+rollout_admin_logs/
+rollout_analysis/
+camera_bridge_frames/
+camera_probe/
+camera_probe_live/
+cube_debug_images/
+dataset_reference_frames/
+raw_camera_frames/
+raw_camera_frames_onecam/
+raw_camera_frames_twocam_fixed/
+rollout_review_frames/
+white_target_debug_scene/
+white_target_debug_scene_roi/
+wsl_action_analysis/
+__pycache__/
+*.pyc
+*.log
+
+# OS and editor files
+.DS_Store
+Thumbs.db

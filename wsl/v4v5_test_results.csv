@@ -1,0 +1,30 @@
+model,step,trial,grasp,lift,carry,place,release,success,notes
+v4,050000,1,N,N,N,N,N,N,invalid deployment pre-fix: runner used 64x64 camera while policy expects 480x640; low approach/no grasp
+v4,050000,2,Y,N,N,N,N,N,mrt3_probe6: max_relative_target=3.0 reached bottle neck well; no gripper close; user reported reset looked correct
+v4,050000,3,N,N,N,N,N,N,t3 pure ACT no delta clamp: gripper full-close at t~6s knocked empty bottle over; approach SL-85 EF78; no carry
+v4,050000,4,N,N,N,N,N,N,t4 pure ACT max_rel3: two grasp attempts both reopened, no lift; bottle now water-filled
+v4,050000,5,Y,Y,Y,?,?,Y,max_rel=5.0 SUCCESS (user-confirmed): GR~1.0@9.1s high-pose lift SL-104, lower+open 11-12.4s
+v4,050000,6,Y,Y,N,N,N,N,max_rel=8.0: grasp+lift but overshoot, gripper lifted too high, no place (user: 抬得太高)
+v4,050000,7,Y,Y,Y,N,N,N,max_rel=5.0 dur15: grasp@8.5s lift SL-106, place started but 15s timeout cut mid-place (GR33, SL-60); 差一点成功
+v4,050000,8,Y,Y,Y,Y,Y,Y,max_rel=5.0 dur20 SUCCESS (user-confirmed): TWO grasp cycles both worked, place@SL-20 GR33 then arm retreat high
+v4,050000,9,Y,Y,Y,Y,Y,Y,max_rel=5.0 dur15 SUCCESS 1st cycle full + 2nd near-miss; teardown gripper overload (robot OK)
+v4,050000,10,Y,Y,Y,Y,Y,Y,max_rel=5.0 dur20 SUCCESS 1st + 2nd near-miss (user: 表现很好); grasp@12s lift SL-105
+v4,030000,1,,,,,,,
+v4,030000,2,,,,,,,
+v4,010000,1,,,,,,,
+v4,010000,2,,,,,,,
+v5,050000,1,N,N,N,N,N,N,max_rel=5.0 dur20: 对象位置离训练集太远，无抓取（用户判断）
+v5,050000,2,Y,N,N,N,N,N,max_rel=5.0 dur20: 抓到盖但抓后下顿非前抬（用户：疑 wrist 视角）; SL clamp -47~-55
+v5,050000,3,?,?,?,?,?,?,INVALID: env ROLLOUT_MAX_RELATIVE_TARGET 未传进 WSL（实际跑了 max_rel=5.0）; 需 WSLENV
+v5,050000,4,Y,Y,N,N,N,N,max_rel=8.0 (WSLENV 生效): 抓后 SL 抬到+30（vs trial2 -4）"好一点"; GR 反复开合未完成放置; 8.0 仍被 clamp
+v5,050000,5,?,?,?,?,?,?,max_rel=8.0 复测: 用户未详评（要求继续加大）; EF clamp 重 -21→+7
+v5,050000,6,Y,Y,Y,Y,?,?,max_rel=10.0 "明显好很多" 首次完整 抓→抬SL+30→放姿EF-33/WF92→开爪@135; 后回初始姿态停止
+v5,050000,7,Y,Y,Y,Y,Y,Y,max_rel=12.0 dur20 "完美成功 2 次" (用户确认) → V5 甜点确定
+v5,050000,8,?,?,?,?,?,?,INVALID: WSLENV 用 ";" 分隔失效（实际跑了 20s max_rel=5.0）; WSLENV 须用 ":" 分隔
+v5,050000,9,Y,Y,Y,Y,Y,Y,max_rel=12.0 dur35 "效果也很不错" (用户确认) → V5 部署配置锁定
+v5,050000,10,N,N,N,N,N,N,泛化测试: 改变位置后失败（ACT 记忆训练位置附近动作，30ep 泛化窗口小）
+v5,050000,11,Y,Y,Y,Y,Y,Y,泛化窗口量化: 位置移近训练点→成功; 结论 V5 只能容忍几cm误差
+v5,030000,1,,,,,,,
+v5,030000,2,,,,,,,
+v5,010000,1,,,,,,,
+v5,010000,2,,,,,,,

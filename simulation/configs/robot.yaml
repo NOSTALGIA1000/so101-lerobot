@@ -1,0 +1,67 @@
+robot:
+  name: so101_new_calib
+  family: soarm101
+  backend_target: mujoco
+  source_format: urdf
+  urdf_path: simulation/assets/robots/so101/so101_new_calib.urdf
+  mjcf_path: simulation/assets/robots/so101/so101_new_calib.mjcf.xml
+  mesh_dir: simulation/assets/robots/so101/assets
+  base_link: base_link
+  end_effector_link: gripper_frame_link
+  fps: 30
+
+control:
+  mode: joint_position
+  action_dim: 6
+  action_keys:
+    - shoulder_pan.pos
+    - shoulder_lift.pos
+    - elbow_flex.pos
+    - wrist_flex.pos
+    - wrist_roll.pos
+    - gripper.pos
+
+observation:
+  state_dim: 6
+  state_keys:
+    - shoulder_pan.pos
+    - shoulder_lift.pos
+    - elbow_flex.pos
+    - wrist_flex.pos
+    - wrist_roll.pos
+    - gripper.pos
+  image_keys:
+    - observation.images.wrist
+    - observation.images.scene
+
+joints:
+  shoulder_pan:
+    lower: -1.91986
+    upper: 1.91986
+    effort: 10.0
+    velocity: 10.0
+  shoulder_lift:
+    lower: -1.74533
+    upper: 1.74533
+    effort: 10.0
+    velocity: 10.0
+  elbow_flex:
+    lower: -1.69
+    upper: 1.69
+    effort: 10.0
+    velocity: 10.0
+  wrist_flex:
+    lower: -1.65806
+    upper: 1.65806
+    effort: 10.0
+    velocity: 10.0
+  wrist_roll:
+    lower: -2.74385
+    upper: 2.84121
+    effort: 10.0
+    velocity: 10.0
+  gripper:
+    lower: -0.174533
+    upper: 1.74533
+    effort: 10.0
+    velocity: 10.0
